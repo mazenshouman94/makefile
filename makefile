@@ -1,6 +1,6 @@
 vpath %.c ./src
 vpath %.h ./inc
-CC = gcc
+CC = gcc_S
 SRC_PATH = ./src/
 LINK_TARGET = app.exe
 INCLUDE_PATH = ./inc/
@@ -11,9 +11,9 @@ all:$(LINK_TARGET)
 clean:
 	-rm $(CLEAN_TARGET)
 	echo Cleaning done !
-$(LINK_TARGET): $(OBJ) quiz.o
+$(LINK_TARGET): $(OBJ) code.o 
 # name of the specified object file should be explicitly added here
-	$(CC) $(OBJ) quiz.o -o $@
+	$(CC) $(OBJ) code.o -o $@
 # and here also
 	echo Linking done !
 #%.o: %.c
