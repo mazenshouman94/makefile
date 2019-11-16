@@ -9,7 +9,8 @@ DEPENDENCY_PATH = Dependencies/
 Immortal_Object=code.o
 SRCS= main.c LCD.c DIO.c
 OBJ = $(SRCS:.c=.o) 
-DEPS= $(SRCS:.c=.d) 
+DEPS= $(SRCS:%.c=$(DEPENDENCY_PATH)%.d) 
+#DEPS_NAMES=main.d LCD.d DIO.d
 CLEAN_TARGET = $(LINK_TARGET) $(OBJ) $(DEPS)
 
 $(LINK_TARGET) : CFLAGS =
@@ -37,7 +38,7 @@ $(LINK_TARGET): $(OBJ) $(Immortal_Object)
 %.o:%.c
 	$(CC) $(CFLAGS) -I$(INCLUDE_PATH) $< -o $@
 
-%.d : %.c
+(DEPENDENCY_PATH)%.d : %.c
 	$(CC) $(CFLAGS) -I$(INCLUDE_PATH) $< -o $@ 
 
 -include $(DEPS)

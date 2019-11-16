@@ -1,5 +1,6 @@
 #include<main.h>
-void main (void)
+int main (void)
 {
 	LCD_Write();
+  return 0;
 }
